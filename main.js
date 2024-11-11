@@ -3,7 +3,7 @@ import { assetList, getAssetById } from './asset.js';
 import { calculatePortfolioValue, getPortfolioAllocation } from './portfolio.js';
 import { Transaction } from './transaction.js';
 
-const assetList = document.getElementById('asset-list');
+document.getElementById('asset-list');
 
 console.log('Asset List:', assetList);
 
