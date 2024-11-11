@@ -2,7 +2,7 @@
 import { assetList, getAssetById } from './asset.js';
 
 // Create Transaction class
-class Transaction {
+export class Transaction {
     constructor(assetId,type,quantity) 
     {
         this.assetId = assetId;
