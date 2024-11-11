@@ -15,11 +15,6 @@ function displayPortfolioValue() {
 // Function to display portfolio allocation
 function displayPortfolioAllocation() {
   const allocation = getPortfolioAllocation();
-
-  allocation.forEach((asset) => {
-    id.textContent = asset.name;
-    allocation.textContent = asset.allocation.toFixed(2);
-  });
 }
 
 // Function to display transaction logs
@@ -32,13 +27,13 @@ function displayTransactionLog(message) {
 // Simulate Transactions
 function processTransactions() {
   try {
-    const buyApple = new Transaction(1, 'buy', 5); // Buying 5 more Apple stocks
+    const buyApple = new Transaction(1, 'buy', 5); 
     buyApple.process();
-    displayTransactionLog(`Bought 5 Apple Stock`);
+    displayTransactionLog(`Purchased 5 Apple Inc. Stock`);
 
-    const sellTesla = new Transaction(2, 'sell', 3); // Selling 3 Tesla stocks
-    sellTesla.process();
-    displayTransactionLog(`Sold 3 Tesla Stock`);
+    const sellTreasuryBonds = new Transaction(2, 'sell', 3); 
+    sellTreasuryBonds.process();
+    displayTransactionLog(`Sold 3 US Treasury Bonds`);
 
   } catch (error) {
     displayTransactionLog(`Error: ${error.message}`);
