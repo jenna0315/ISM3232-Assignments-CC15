@@ -1,9 +1,9 @@
+import { assetList, getAssetById } from './asset.js';
 import { calculatePortfolioValue, getPortfolioAllocation } from './portfolio.js';
 import { Transaction } from './transaction.js';
 
 // DOM Elements
 const portfolioValueElement = document.getElementById('portfolio-value');
-const portfolioAllocation = document.getElementById('portfolio-allocation').getElementsByTagName('tbody')[0];
 const transactionLog = document.getElementById('transaction-log');
 
 // Function to display the portfolio value
@@ -12,16 +12,17 @@ function displayPortfolioValue() {
   portfolioValueElement.textContent = `Total Portfolio Value: $${totalValue.toFixed(2)}`;
 }
 
-// Function to display portfolio allocation
-function displayPortfolioAllocation() {
-    const allocation = getPortfolioAllocation();
+const portfolioValue = calculatePortfolioValue()
+const applePortfolioAllocation = getPortfolioAllocation(1)
+const treasuryPortfolioAllocation = getPortfolioAllocation(2)
 
-    allocation.forEach(asset => {
-      const allocationItem = document.createElement('li');
-      allocationItem.textContent = `${asset.name}: ${asset.allocation}%`;
-    });
-  }
-  
+console.log(`Total Portfolio Value: ${portfolioValue}`)
+console.log('Locate Asset By Id:')
+console.log('Apple Inc. - ID 1:', getAssetById(1));
+console.log('Portfolio Allocations')
+console.log('Apple Inc. Portfolio Allocation:',applePortfolioAllocation)
+console.log('Treasury Bonds Portfolio Allocation:', treasuryPortfolioAllocation)
+
 
 // Function to display transaction logs
 function displayTransactionLog(message) {
@@ -47,12 +48,10 @@ function processTransactions() {
 
   // Update portfolio after transactions
   displayPortfolioValue();
-  displayPortfolioAllocation();
 }
 
 // Initial Display
 window.onload = () => {
   displayPortfolioValue();
-  displayPortfolioAllocation();
   processTransactions(); // Process some transactions on page load
 };
