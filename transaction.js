@@ -1,9 +1,6 @@
 //Task 3: Create transaction module with Transaction class.
 import { assetList, getAssetById } from './asset.js';
 
-console.log('Asset List:', assetList);
-console.log('Asset with ID 1:', getAssetById(1));
-
 // Create Transaction class
 class Transaction {
     constructor(assetId,type,quantity) {
