@@ -13,10 +13,10 @@ console.log(applePortfolioAllocation)
 
 
 // Create a new Transaction
-const Transaction1 = new Transaction(1);
-Transaction.addItem(1, "buy", 3)
-Transaction.addItem(2, "sell", 300); 
+const Transaction1 = new Transaction(1, "buy", 3)
+const Transaction2 = new Transaction(2, "sell", 300); 
 
 // Display Transaction details
-console.log('Transaction:', Transaction1);
+console.log('Transaction 1:', Transaction1);
+console.log('Transaction 2:', Transaction2);
 console.log(applePortfolioAllocation)
