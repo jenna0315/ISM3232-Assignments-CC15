@@ -3,7 +3,7 @@ import { Transaction } from './transaction.js';
 
 // DOM Elements
 const portfolioValueElement = document.getElementById('portfolio-value');
-const portfolioAllocationTable = document.getElementById('portfolio-allocation').getElementsByTagName('tbody')[0];
+const portfolioAllocation = document.getElementById('portfolio-allocation').getElementsByTagName('tbody')[0];
 const transactionLog = document.getElementById('transaction-log');
 
 // Function to display the portfolio value
@@ -14,8 +14,14 @@ function displayPortfolioValue() {
 
 // Function to display portfolio allocation
 function displayPortfolioAllocation() {
-  const allocation = getPortfolioAllocation();
-}
+    const allocation = getPortfolioAllocation();
+
+    allocation.forEach(asset => {
+      const allocationItem = document.createElement('li');
+      allocationItem.textContent = `${asset.name}: ${asset.allocation}%`;
+    });
+  }
+  
 
 // Function to display transaction logs
 function displayTransactionLog(message) {
