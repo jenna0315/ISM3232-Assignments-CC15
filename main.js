@@ -23,6 +23,6 @@ console.log('Transaction 1:', Transaction1);
 console.log('Transaction 2:', Transaction2);
 
 
-console.log(`Updated Apple Inc. Portfolio Allocation:,${applePortfolioAllocation}`)
-console.log(`Updated Total Portfolio Value: ${portfolioValue}`)
-console.log(`Updated Asset List:, ${assetList}`)
+console.log('Updated Apple Inc. Portfolio Allocation:', applePortfolioAllocation)
+console.log('Updated Total Portfolio Value:', portfolioValue)
+console.log('Updated Asset List:', assetList)
