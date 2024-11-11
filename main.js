@@ -3,7 +3,7 @@ import { assetList, getAssetById } from './asset.js';
 import { calculatePortfolioValue, getPortfolioAllocation } from './portfolio.js';
 import { Transaction } from './transaction.js';
 
-document.getElementById('asset-list');
+let e = document.getElementById('asset-list');
 
 console.log('Asset List:', assetList);
 
@@ -22,7 +22,7 @@ const Transaction2 = new Transaction(2, "sell", 300);
 console.log('Transaction 1:', Transaction1);
 console.log('Transaction 2:', Transaction2);
 
-
+calculatePortfolioValue()
 console.log('Updated Apple Inc. Portfolio Allocation:', applePortfolioAllocation)
 console.log('Updated Total Portfolio Value:', portfolioValue)
 console.log('Updated Asset List:', assetList)
