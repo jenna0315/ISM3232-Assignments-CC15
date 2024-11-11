@@ -8,7 +8,7 @@ console.log('Asset with ID 1:', getAssetById(1));
 
 const portfolioValue = calculatePortfolioValue()
 const applePortfolioAllocation = getPortfolioAllocation(1)
-console.log(portfolioValue)
+console.log(`Total Portfolio Value: ${portfolioValue}`)
 console.log(applePortfolioAllocation)
 
 

@@ -23,6 +23,8 @@ export function getPortfolioAllocation() {
       return {
         id: asset.id,
         name: asset.name,
+        type: asset.type,
+        quantity: asset.quantity,
         allocationPercentage: percentage.toFixed(2)
       };
     });
