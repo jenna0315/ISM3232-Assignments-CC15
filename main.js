@@ -1,26 +1,57 @@
-//Task 4: Implement main application and log portfolio details and transactions.
-import { assetList, getAssetById } from './asset.js';
 import { calculatePortfolioValue, getPortfolioAllocation } from './portfolio.js';
 import { Transaction } from './transaction.js';
 
-console.log('Asset List:', assetList);
+// DOM Elements
+const portfolioValueElement = document.getElementById('portfolio-value');
+const portfolioAllocationTable = document.getElementById('portfolio-allocation').getElementsByTagName('tbody')[0];
+const transactionLog = document.getElementById('transaction-log');
 
-const portfolioValue = calculatePortfolioValue()
-const applePortfolioAllocation = getPortfolioAllocation(1)
-console.log(`Total Portfolio Value: ${portfolioValue}`)
-console.log('Apple Inc. - ID 1:', getAssetById(1));
+// Function to display the portfolio value
+function displayPortfolioValue() {
+  const totalValue = calculatePortfolioValue();
+  portfolioValueElement.textContent = `Total Portfolio Value: $${totalValue.toFixed(2)}`;
+}
 
+// Function to display portfolio allocation
+function displayPortfolioAllocation() {
+  const allocation = getPortfolioAllocation();
 
+  allocation.forEach((asset) => {
+    id.textContent = asset.name;
+    allocation.textContent = asset.allocation.toFixed(2);
+  });
+}
 
-// Create a new Transaction
-const Transaction1 = new Transaction(1, "buy", 3)
-const Transaction2 = new Transaction(2, "sell", 300); 
+// Function to display transaction logs
+function displayTransactionLog(message) {
+  const listItem = document.createElement('li');
+  listItem.textContent = message;
+  transactionLog.appendChild(listItem);
+}
 
-// Display Transaction details
-console.log('Transaction 1:', Transaction1);
-console.log('Transaction 2:', Transaction2);
+// Simulate Transactions
+function processTransactions() {
+  try {
+    const buyApple = new Transaction(1, 'buy', 5); // Buying 5 more Apple stocks
+    buyApple.process();
+    displayTransactionLog(`Bought 5 Apple Stock`);
 
-calculatePortfolioValue()
-console.log('Updated Apple Inc. Portfolio Allocation:', applePortfolioAllocation)
-console.log('Updated Total Portfolio Value:', portfolioValue)
-console.log('Updated Asset List:', assetList)
+    const sellTesla = new Transaction(2, 'sell', 3); // Selling 3 Tesla stocks
+    sellTesla.process();
+    displayTransactionLog(`Sold 3 Tesla Stock`);
+
+  } catch (error) {
+    displayTransactionLog(`Error: ${error.message}`);
+  }
+
+  // Update portfolio after transactions
+  displayPortfolioValue();
+  displayPortfolioAllocation();
+}
+
+// Initial Display
+window.onload = () => {
+  displayPortfolioValue();
+  displayPortfolioAllocation();
+  processTransactions(); // Process some transactions on page load
+};

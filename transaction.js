@@ -3,12 +3,14 @@ import { assetList, getAssetById } from './asset.js';
 
 // Create Transaction class
 class Transaction {
-    constructor(assetId,type,quantity) {
+    constructor(assetId,type,quantity) 
+    {
         this.assetId = assetId;
         this.type = type;
-        this.quantity = quantity
+        this.quantity = quantity;
     }
-    execute() {
+
+        process(){
         const asset = getAssetById(this.assetId);
         if (this.type === 'buy') {
             asset.quantity += this.quantity;
@@ -24,5 +26,4 @@ class Transaction {
                 asset.quantity -= this.quantity;
                 console.log(`Sold ${this.quantity} units of ${asset.name}. New quantity: ${asset.quantity}`);
       }}
-    }
-    export { Transaction };
+    };
